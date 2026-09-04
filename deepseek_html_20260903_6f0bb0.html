@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mrsoftuk_SAT | ???°N???N??µN? nowSat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
+        }
+
+        body {
+            background: #0b0d15;
+            color: #e3e8f0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            background-image: radial-gradient(circle at 20% 30%, #1a1f2e 0%, #0b0d15 80%);
+        }
+
+        .launcher-container {
+            max-width: 1100px;
+            width: 100%;
+            background: rgba(14, 18, 28, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 3.5rem;
+            padding: 2.5rem 2.8rem;
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(0, 255, 200, 0.25);
+            border: 1px solid rgba(0, 255, 200, 0.15);
+            transition: all 0.25s;
+        }
+
+        /* ???°?????° */
+        .launcher-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.2rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(0, 255, 200, 0.2);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .brand i {
+            font-size: 2.8rem;
+            color: #00f5d4;
+            text-shadow: 0 0 25px #00f5d4aa, 0 0 70px #00f5d466;
+        }
+
+        .brand h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #b3f0e8, #00f5d4, #4affb5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            text-shadow: 0 0 40px #00f5d444;
+        }
+
+        .brand .version {
+            font-size: 0.9rem;
+            background: #1f2937;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            color: #b3e5d4;
+            border: 1px solid #00f5d466;
+            font-weight: 500;
+            margin-left: 6px;
+        }
+
+        .user-badge {
+            background: #19232f;
+            padding: 0.5rem 1.8rem 0.5rem 1.5rem;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #2d4055;
+            box-shadow: 0 0 20px rgba(0, 245, 212, 0.15);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .user-badge:hover {
+            border-color: #00f5d488;
+        }
+
+        .user-badge i {
+            color: #facc15;
+            font-size: 1.3rem;
+        }
+
+        .user-badge .nick {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #c6f0e0;
+            text-shadow: 0 0 18px #00f5d466;
+            letter-spacing: 0.3px;
+        }
+
+        .user-badge .status {
+            background: #4affb5;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 20px #4affb5aa;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0.5; transform: scale(0.9); }
+        }
+
+        .admin-toggle-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .admin-toggle-btn {
+            background: #2a1f3a;
+            border: 1px solid #7c5c9e;
+            color: #d4bfff;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .admin-toggle-btn:hover {
+            background: #3d2a55;
+            border-color: #b78aff;
+            box-shadow: 0 0 20px #7c5c9e66;
+        }
+
+        .admin-toggle-btn i {
+            font-size: 1rem;
+        }
+
+        /* ???µ??N???N?: ?±???±?»????N??µ???° N???N????? */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 1.8rem 0 1.2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title i {
+            color: #00f5d4;
+            font-size: 1.8rem;
+        }
+
+        .cheats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2rem;
+            min-height: 120px;
+        }
+
+        .cheat-card {
+            background: #101a24;
+            border-radius: 2rem;
+            padding: 1.6rem 1.3rem;
+            border: 1px solid #25323e;
+            transition: all 0.25s;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cheat-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #00f5d4, #4affb5, #00f5d4);
+            opacity: 0.6;
+        }
+
+        .cheat-card:hover {
+            transform: translateY(-6px);
+            border-color: #00f5d488;
+            box-shadow: 0 16px 35px -8px #00f5d433;
+        }
+
+        .cheat-icon {
+            font-size: 2.2rem;
+            color: #00f5d4;
+            margin-bottom: 0.6rem;
+            display: inline-block;
+            background: #1b2836;
+            padding: 0.5rem 0.9rem;
+            border-radius: 18px;
+        }
+
+        .cheat-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .cheat-card p {
+            color: #b0c9dd;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin: 0.3rem 0 0.9rem;
+        }
+
+        .cheat-tag {
+            display: inline-block;
+            background: #1f2f3b;
+            padding: 0.15rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #b0e0d0;
+            border: 1px solid #3a5060;
+        }
+
+        .cheat-card .btn-load {
+            display: inline-block;
+            margin-top: 0.8rem;
+            background: transparent;
+            border: 1px solid #00f5d488;
+            color: #d5f5ec;
+            padding: 0.4rem 1.2rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: 0.2s;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .cheat-card .btn-load:hover {
+            background: #00f5d4;
+            color: #0b0d15;
+            border-color: #00f5d4;
+            box-shadow: 0 0 28px #00f5d466;
+        }
+
+        .cheat-card .btn-load i {
+            margin-right: 8px;
+        }
+
+        .empty-library {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            color: #7e97ae;
+            background: #0d1620;
+            border-radius: 2.5rem;
+            border: 1px dashed #2d4055;
+        }
+
+        .empty-library i {
+            font-size: 3rem;
+            color: #4a5f74;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        /* ???°???µ?»N? N???N??°???»?µ????N? */
+        .launcher-controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            background: #101b26;
+            padding: 1.2rem 2rem;
+            border-radius: 3rem;
+            border: 1px solid #283a48;
+            gap: 1.2rem;
+        }
+
+        .launcher-controls .info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .launcher-controls .info i {
+            color: #facc15;
+            font-size: 1.3rem;
+        }
+
+        .launcher-controls .info span {
+            color: #b5d5ea;
+            font-weight: 500;
+        }
+
+        .launcher-controls .info .nick-highlight {
+            background: #1d2d3b;
+            padding: 0.2rem 1.4rem;
+            border-radius: 60px;
+            border: 1px solid #00f5d466;
+            font-weight: 700;
+            color: #c6f0e0;
+            box-shadow: 0 0 18px #00f5d433;
+        }
+
+        .btn-launch {
+            background: #00f5d4;
+            border: none;
+            padding: 0.7rem 2.6rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #0b0d15;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: 0.25s;
+            box-shadow: 0 0 30px #00f5d466;
+            border: 1px solid #aaffeb;
+        }
+
+        .btn-launch:hover {
+            transform: scale(1.04);
+            background: #b3fff0;
+            box-shadow: 0 0 60px #00f5d4aa;
+        }
+
+        /* ??????????-???°???µ?»N? */
+        .admin-panel {
+            display: none;
+            margin-top: 2rem;
+            background: #111d2a;
+            border-radius: 2.5rem;
+            padding: 2rem 2rem 1.8rem;
+            border: 1px solid #4a3a66;
+            box-shadow: 0 0 40px #4a3a6633;
+            animation: fadeSlide 0.3s ease;
+        }
+
+        .admin-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(-12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .admin-panel h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #d4bfff;
+        }
+
+        .admin-panel h2 i {
+            color: #b78aff;
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 700px) {
+            .admin-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .admin-card {
+            background: #0f1824;
+            border-radius: 1.8rem;
+            padding: 1.5rem 1.8rem;
+            border: 1px solid #2d3d52;
+        }
+
+        .admin-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #b3d9f0;
+        }
+
+        .admin-card h3 i {
+            color: #facc15;
+        }
+
+        .admin-card .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .admin-card input[type="text"],
+        .admin-card input[type="number"],
+        .admin-card input[type="email"],
+        .admin-card input[type="password"] {
+            flex: 1;
+            min-width: 100px;
+            padding: 0.6rem 1rem;
+            border-radius: 60px;
+            border: 1px solid #3a5068;
+            background: #0e1925;
+            color: #e3e8f0;
+            font-size: 0.95rem;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .admin-card input[type="text"]:focus,
+        .admin-card input[type="number"]:focus,
+        .admin-card input[type="email"]:focus,
+        .admin-card input[type="password"]:focus {
+            border-color: #b78aff;
+            box-shadow: 0 0 20px #7c5c9e55;
+        }
+
+        .admin-card input[type="number"] {
+            max-width: 120px;
+        }
+
+        .admin-card .btn-admin {
+            background: #3d2a55;
+            border: none;
+            padding: 0.5rem 1.6rem;
+            border-radius: 60px;
+            font-weight: 600;
+            color: #e8daff;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 1px solid #7c5c9e;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .admin-card .btn-admin:hover {
+            background: #5a3d7a;
+            border-color: #b78aff;
+            box-shadow: 0 0 25px #7c5c9e77;
+        }
+
+        .admin-card .btn-admin.danger {
+            background: #4a1e2e;
+            border-color: #a04a6a;
+            color: #ffc8d6;
+        }
+
+        .admin-card .btn-admin.danger:hover {
+            background: #6a2a3e;
+            border-color: #d46a8a;
+        }
+
+        .file-list {
+            margin-top: 0.8rem;
+            max-height: 140px;
+            overflow-y: auto;
+            background: #0a121d;
+            border-radius: 1.2rem;
+            padding: 0.6rem 0.8rem;
+            border: 1px solid #25333f;
+        }
+
+        .file-list .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.4rem 0.2rem;
+            border-bottom: 1px solid #1d2b36;
+            font-size: 0.9rem;
+        }
+
+        .file-list .file-item:last-child {
+            border-bottom: none;
+        }
+
+        .file-list .file-item .fname {
+            color: #c6ddee;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            word-break: break-all;
+        }
+
+        .file-list .file-item .fname i {
+            color: #b78aff;
+        }
+
+        .file-list .file-item .del-btn {
+            background: none;
+            border: none;
+            color: #b06a7a;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.2s;
+            flex-shrink: 0;
+        }
+
+        .file-list .file-item .del-btn:hover {
+            color: #ff7a9a;
+            transform: scale(1.15);
+        }
+
+        .file-upload-area {
+            border: 2px dashed #3a5068;
+            border-radius: 1.5rem;
+            padding: 1.2rem;
+            text-align: center;
+            margin: 0.6rem 0;
+            cursor: pointer;
+            transition: 0.3s;
+            background: #0a121d;
+        }
+
+        .file-upload-area:hover {
+            border-color: #b78aff;
+            background: #121e2c;
+        }
+
+        .file-upload-area i {
+            font-size: 2rem;
+            color: #7c5c9e;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .file-upload-area p {
+            color: #8faac2;
+            font-size: 0.9rem;
+        }
+
+        .file-upload-area .file-name {
+            color: #b3d9f0;
+            font-weight: 600;
+            margin-top: 0.3rem;
+        }
+
+        .admin-status {
+            margin-top: 0.4rem;
+            font-size: 0.85rem;
+            color: #b0c9dd;
+        }
+
+        .admin-status i {
+            color: #4affb5;
+            margin-right: 6px;
+        }
+
+        .admin-status .error-text {
+            color: #ff7a8a;
+        }
+
+        /* ??N????? ?? ?°??????????N? */
+        .admin-login {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .admin-login input {
+            flex: 1;
+            min-width: 150px;
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            border: 1px solid #4a3a66;
+            background: #0e1925;
+            color: #e3e8f0;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .admin-login input:focus {
+            border-color: #b78aff;
+            box-shadow: 0 0 20px #7c5c9e55;
+        }
+
+        .admin-login .btn-admin-login {
+            background: #4a3a66;
+            border: none;
+            padding: 0.5rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 600;
+            color: #e8daff;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 1px solid #7c5c9e;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .admin-login .btn-admin-login:hover {
+            background: #5a3d7a;
+            border-color: #b78aff;
+            box-shadow: 0 0 25px #7c5c9e77;
+        }
+
+        .admin-login .btn-admin-login i {
+            font-size: 0.9rem;
+        }
+
+        .admin-login-status {
+            font-size: 0.85rem;
+            color: #b0c9dd;
+            margin-top: 0.3rem;
+        }
+
+        .admin-login-status i {
+            color: #4affb5;
+            margin-right: 6px;
+        }
+
+        .admin-login-status .error {
+            color: #ff7a8a;
+        }
+
+        /* ? ?µ????N?N?N??°N???N? */
+        .register-section {
+            margin-top: 2rem;
+            background: #111d2a;
+            border-radius: 2.5rem;
+            padding: 2rem 2rem 1.8rem;
+            border: 1px solid #2d5a7a;
+            box-shadow: 0 0 40px #2d5a7a33;
+        }
+
+        .register-section h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #7fc9ff;
+        }
+
+        .register-section h2 i {
+            color: #4affb5;
+        }
+
+        .register-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .register-grid .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .register-grid .input-group label {
+            font-size: 0.85rem;
+            color: #b0c9dd;
+            font-weight: 500;
+        }
+
+        .register-grid .input-group input {
+            padding: 0.7rem 1.2rem;
+            border-radius: 60px;
+            border: 1px solid #3a5068;
+            background: #0e1925;
+            color: #e3e8f0;
+            font-size: 0.95rem;
+            outline: none;
+            transition: 0.2s;
+            width: 100%;
+        }
+
+        .register-grid .input-group input:focus {
+            border-color: #4affb5;
+            box-shadow: 0 0 20px #4affb544;
+        }
+
+        .register-grid .input-group input::placeholder {
+            color: #5a7085;
+        }
+
+        .register-btn {
+            background: #00f5d4;
+            border: none;
+            padding: 0.8rem 2.8rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #0b0d15;
+            cursor: pointer;
+            transition: 0.25s;
+            box-shadow: 0 0 30px #00f5d466;
+            border: 1px solid #aaffeb;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        .register-btn:hover {
+            transform: scale(1.03);
+            background: #b3fff0;
+            box-shadow: 0 0 60px #00f5d4aa;
+        }
+
+        .register-full {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .register-full .register-btn {
+            width: 100%;
+        }
+
+        @media (max-width: 700px) {
+            .register-grid {
+                grid-template-columns: 1fr;
+            }
+            .register-full {
+                grid-column: 1;
+            }
+            .admin-login {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .admin-login input {
+                width: 100%;
+            }
+            .admin-login .btn-admin-login {
+                justify-content: center;
+            }
+        }
+
+        /* ???????????° ???»N? ??N???N?N?N???N? N??°??N??° ?? ?±N??°N??·?µN??µ */
+        .open-site-btn {
+            background: #4a3a66;
+            border: 1px solid #7c5c9e;
+            color: #e8daff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .open-site-btn:hover {
+            background: #5a3d7a;
+            border-color: #b78aff;
+            box-shadow: 0 0 25px #7c5c9e77;
+        }
+
+        .open-site-btn i {
+            font-size: 0.9rem;
+        }
+
+        /* ?¤N?N??µN? */
+        .footer {
+            margin-top: 2.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #1f2d3b;
+            padding-top: 1.6rem;
+            font-size: 0.9rem;
+            color: #7e97ae;
+        }
+
+        .footer i {
+            color: #00f5d4;
+            margin: 0 4px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #b4d0e5;
+            text-decoration: none;
+            transition: 0.2s;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-links a:hover {
+            color: #00f5d4;
+            text-shadow: 0 0 12px #00f5d466;
+        }
+
+        .footer-links a i {
+            font-size: 1rem;
+        }
+
+        /* ????N?N? */
+        .toast-message {
+            display: none;
+            background: #1d2a36;
+            color: #b3ffe6;
+            padding: 0.6rem 1.8rem;
+            border-radius: 60px;
+            border-left: 4px solid #00f5d4;
+            font-weight: 500;
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2000;
+            max-width: 90%;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .toast-message i {
+            margin-right: 10px;
+            color: #4affb5;
+        }
+
+        .toast-message.error {
+            border-left-color: #ff7a8a;
+        }
+
+        .toast-message.error i {
+            color: #ff7a8a;
+        }
+
+        @media (max-width: 700px) {
+            .launcher-container {
+                padding: 1.8rem 1.2rem;
+                border-radius: 2.2rem;
+            }
+            .brand h1 {
+                font-size: 2rem;
+            }
+            .launcher-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .btn-launch {
+                justify-content: center;
+            }
+            .toast-message {
+                white-space: normal;
+                font-size: 0.9rem;
+                padding: 0.5rem 1.2rem;
+            }
+            .admin-panel {
+                padding: 1.5rem 1rem;
+            }
+            .admin-card .input-group {
+                flex-direction: column;
+            }
+            .admin-card input[type="text"],
+            .admin-card input[type="number"] {
+                width: 100%;
+            }
+            .admin-card input[type="number"] {
+                max-width: 100%;
+            }
+            .file-upload-area {
+                padding: 0.8rem;
+            }
+            .footer-links {
+                gap: 1rem;
+                justify-content: center;
+            }
+            .register-section {
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cheats-grid {
+                grid-template-columns: 1fr;
+            }
+            .user-badge {
+                padding: 0.3rem 1.2rem 0.3rem 1rem;
+            }
+            .brand .version {
+                font-size: 0.7rem;
+                padding: 0.1rem 0.7rem;
+            }
+            .admin-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="launcher-container">
+
+    <!-- ???°?????° -->
+    <header class="launcher-header">
+        <div class="brand">
+            <i class="fas fa-dragon"></i>
+            <h1>Mrsoftuk_SAT</h1>
+            <span class="version">v3.0</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+            <div class="admin-toggle-wrap">
+                <button class="admin-toggle-btn" id="adminToggleBtn">
+                    <i class="fas fa-shield-alt"></i> ??????????-???°???µ?»N?
+                </button>
+            </div>
+            <div class="user-badge" id="userBadge">
+                <i class="fas fa-user-astronaut"></i>
+                <span class="nick" id="nickDisplay">????N?N?N?</span>
+                <span class="status" style="background: #facc15;"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ?????±?»????N??µ???° N???N????? -->
+    <div class="section-title">
+        <i class="fas fa-code"></i>
+        <span>???? ?????±?»????N??µ???° N???N?????</span>
+        <span style="font-size: 0.9rem; font-weight: 400; color: #7e97ae; margin-left: auto;" id="cheatCountLabel">0 N??°???»????</span>
+    </div>
+
+    <div class="cheats-grid" id="cheatsGrid">
+        <!-- N?N????° N??µ?????µN?N?N?N?N? ???°N?N???N????? N???N????? -->
+    </div>
+
+    <!-- ???°???µ?»N? N???N??°???»?µ????N? -->
+    <div class="launcher-controls">
+        <div class="info">
+            <i class="fas fa-id-card"></i>
+            <span>????N???????N??? ??N???N????»N?:</span>
+            <span class="nick-highlight" id="footerNick">????N?N?N?</span>
+            <i class="fas fa-check-circle" style="color: #facc15; font-size: 1.1rem;"></i>
+        </div>
+        <button class="btn-launch" id="launchMainBtn">
+            <i class="fas fa-play"></i> ???°??N?N?N???N?N? Minecraft
+        </button>
+    </div>
+
+    <!-- ??????????-???°???µ?»N? -->
+    <div class="admin-panel" id="adminPanel">
+        <h2><i class="fas fa-crown"></i> ???°???µ?»N? ?°??????????N?N?N??°N???N??°</h2>
+
+        <div class="admin-login" id="adminLoginArea">
+            <input type="password" id="adminPasswordInput" placeholder="?????µ????N??µ ???°N?N??µN?-???°N????»N?...">
+            <button class="btn-admin-login" id="adminLoginBtn"><i class="fas fa-key"></i> ??????N???</button>
+        </div>
+        <div class="admin-login-status" id="adminLoginStatus">
+            <i class="fas fa-info-circle"></i> ???»N? ????N?N?N????° ?? ?°????????-???°???µ?»?? ?????µ????N??µ ???°N?N??µN?-???°N????»N?
+        </div>
+
+        <div id="adminContent" style="display: none; margin-top: 1.5rem;">
+            <div class="admin-grid">
+                <div class="admin-card">
+                    <h3><i class="fas fa-user-plus"></i> ??N????°N?N? ?°??????????N?</h3>
+                    <div class="input-group">
+                        <input type="text" id="adminNickInput" placeholder="?????µ????N??µ ??????...">
+                        <button class="btn-admin" id="grantAdminBtn"><i class="fas fa-gavel"></i> ??N????°N?N?</button>
+                    </div>
+                    <div class="input-group">
+                        <button class="btn-admin danger" id="revokeAdminBtn"><i class="fas fa-user-slash"></i> ???°?±N??°N?N? ??N??°???°</button>
+                    </div>
+                    <div class="admin-status" id="adminStatus">
+                        <i class="fas fa-info-circle"></i> ??????N????? ?°??????????N?N?N??°N???N?????: <span id="adminListDisplay">nowSat</span>
+                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <h3><i class="fas fa-file-archive"></i> ???°??N?N??·??N?N? ZIP-N??°???»</h3>
+                    <div class="input-group">
+                        <input type="text" id="zipNameInput" placeholder="???°?·???°?????µ N???N??°...">
+                        <input type="text" id="zipTagInput" placeholder="???µ?? (PvP...)" style="flex:0.7; min-width:80px;">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="zipDescInput" placeholder="??????N??°?????µ (???µ???±N??·?°N??µ?»N?????)" style="flex:2;">
+                    </div>
+
+                    <div class="file-upload-area" id="zipDropArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>???°?¶????N??µ ???»?? ???µN??µN??°N???N??µ ZIP-N??°???» N?N????°</p>
+                        <div class="file-name" id="selectedZipName">?¤?°???» ???µ ??N??±N??°??</div>
+                        <input type="file" id="zipFileInput" accept=".zip" style="display:none;">
+                    </div>
+
+                    <div class="input-group" style="margin-top: 0.5rem;">
+                        <button class="btn-admin" id="uploadZipBtn"><i class="fas fa-upload"></i> ???°??N?N??·??N?N? ZIP</button>
+                    </div>
+
+                    <div class="file-list" id="fileList">
+                        <!-- N??°???»N? ?±N???N?N? ?????±?°???»?µ??N? N??µN??µ?· JS -->
+                    </div>
+                    <div class="admin-status" style="margin-top: 0.5rem;">
+                        <i class="fas fa-database"></i> ??N??µ???? N???N?????: <span id="fileCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ? ?????˜????? ???¦?˜?? -->
+    <div class="register-section">
+        <h2><i class="fas fa-user-plus"></i> ? ?µ????N?N?N??°N???N?</h2>
+        <div class="register-grid">
+            <div class="input-group">
+                <label for="regNick"><i class="fas fa-user"></i> ?????????µ????</label>
+                <input type="text" id="regNick" placeholder="???°N? ????N????????? ??????">
+            </div>
+            <div class="input-group">
+                <label for="regEmail"><i class="fas fa-envelope"></i> Email</label>
+                <input type="email" id="regEmail" placeholder="example@mail.ru">
+            </div>
+            <div class="input-group">
+                <label for="regPassword"><i class="fas fa-lock"></i> ???°N????»N?</label>
+                <input type="password" id="regPassword" placeholder="??????????N??? 6 N??????????»????">
+            </div>
+            <div class="input-group">
+                <label for="regPassword2"><i class="fas fa-check-circle"></i> ??????N???N???N??µ ???°N????»N?</label>
+                <input type="password" id="regPassword2" placeholder="??????N???N???N??µ ???°N????»N?">
+            </div>
+            <div class="register-full">
+                <button class="register-btn" id="registerBtn"><i class="fas fa-arrow-right"></i> ???°N??µ????N?N?N???N??????°N?N?N?N?</button>
+                <div style="text-align: center; color: #7e97ae; font-size: 0.85rem;">
+                    <i class="fas fa-info-circle"></i> ????N??»?µ N??µ????N?N?N??°N????? ??N? N??????¶?µN??µ N????°N??????°N?N? N???N?N? ?? ?????»N?N??°N?N? ???±???????»?µ????N?
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ?¤N?N??µN? -->
+    <footer class="footer">
+        <div>
+            <i class="fas fa-crown"></i> Mrsoftuk_SAT A· ???°N???N??µN? nowSat
+        </div>
+        <div class="footer-links">
+            <a href="#" id="discordLink"><i class="fab fa-discord"></i> Discord</a>
+            <a href="#" id="youtubeLink"><i class="fab fa-youtube"></i> YouTube</a>
+            <a href="#" id="supportLink"><i class="fas fa-envelope"></i> ?????????µN??¶???°</a>
+            <a href="//https/softnew.com" target="_blank" id="siteLink" style="color: #ff6b6b; border: 1px solid #ff6b6b44; padding: 0.2rem 1rem; border-radius: 40px;">
+                <i class="fas fa-globe"></i> ???°??N? (Mrsoftu.ru)
+            </a>
+            <button class="open-site-btn" id="openSiteBtn">
+                <i class="fas fa-external-link-alt"></i> ??N???N?N?N?N? ?? ?±N??°N??·?µN??µ
+            </button>
+        </div>
+    </footer>
+</div>
+
+<!-- ????N?N? -->
+<div id="toastMessage" class="toast-message">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastText">????N???????</span>
+</div>
+
+<script>
+    (function() {
+        const MASTER_PASSWORD = 'admin123';
+        let admins = ['nowSat'];
+        let users = {};
+        let currentUser = null;
+        let cheatFiles = [];
+
+        // ---- ???°??N?N??·???° N???N?N??°??N?????N?N? ???°????N?N? ???· localStorage ----
+        function loadData() {
+            try {
+                const savedUsers = localStorage.getItem('mrsoftuk_users');
+                if (savedUsers) {
+                    users = JSON.parse(savedUsers);
+                }
+                const savedAdmins = localStorage.getItem('mrsoftuk_admins');
+                if (savedAdmins) {
+                    admins = JSON.parse(savedAdmins);
+                }
+                const savedCheats = localStorage.getItem('mrsoftuk_cheats');
+                if (savedCheats) {
+                    const parsed = JSON.parse(savedCheats);
+                    cheatFiles = parsed.map(item => {
+                        if (item.fileData) {
+                            const binary = atob(item.fileData);
+                            const array = new Uint8Array(binary.length);
+                            for (let i = 0; i < binary.length; i++) {
+                                array[i] = binary.charCodeAt(i);
+                            }
+                            const blob = new Blob([array], { type: 'application/zip' });
+                            return {
+                                ...item,
+                                fileObject: blob
+                            };
+                        }
+                        return item;
+                    });
+                }
+                const savedUser = localStorage.getItem('mrsoftuk_current_user');
+                if (savedUser) {
+                    currentUser = savedUser;
+                }
+            } catch (e) {
+                console.warn('??N????±???° ?·?°??N?N??·???? ???°????N?N?:', e);
+            }
+        }
+
+        // ---- ????N?N??°???µ?????µ ???°????N?N? ?? localStorage ----
+        function saveData() {
+            try {
+                localStorage.setItem('mrsoftuk_users', JSON.stringify(users));
+                localStorage.setItem('mrsoftuk_admins', JSON.stringify(admins));
+                const cheatsToSave = cheatFiles.map(item => {
+                    const { fileObject, ...rest } = item;
+                    return rest;
+                });
+                localStorage.setItem('mrsoftuk_cheats', JSON.stringify(cheatsToSave));
+                if (currentUser) {
+                    localStorage.setItem('mrsoftuk_current_user', currentUser);
+                } else {
+                    localStorage.removeItem('mrsoftuk_current_user');
+                }
+            } catch (e) {
+                console.warn('??N????±???° N???N?N??°???µ????N? ???°????N?N?:', e);
+            }
+        }
+
+        // ---- ????N?N??°???µ?????µ N??°???»???? ----
+        function saveCheatsWithFiles() {
+            try {
+                const cheatsToSave = cheatFiles.map(item => {
+                    const { fileObject, ...rest } = item;
+                    return rest;
+                });
+                localStorage.setItem('mrsoftuk_cheats', JSON.stringify(cheatsToSave));
+            } catch (e) {
+                console.warn('??N????±???° N???N?N??°???µ????N? N??°???»????:', e);
+            }
+        }
+
+        // ---- DOM ----
+        const grid = document.getElementById('cheatsGrid');
+        const adminPanel = document.getElementById('adminPanel');
+        const adminToggleBtn = document.getElementById('adminToggleBtn');
+        const adminNickInput = document.getElementById('adminNickInput');
+        const grantAdminBtn = document.getElementById('grantAdminBtn');
+        const revokeAdminBtn = document.getElementById('revokeAdminBtn');
+        const adminListDisplay = document.getElementById('adminListDisplay');
+
+        const adminPasswordInput = document.getElementById('adminPasswordInput');
+        const adminLoginBtn = document.getElementById('adminLoginBtn');
+        const adminLoginStatus = document.getElementById('adminLoginStatus');
+        const adminContent = document.getElementById('adminContent');
+
+        const zipNameInput = document.getElementById('zipNameInput');
+        const zipTagInput = document.getElementById('zipTagInput');
+        const zipDescInput = document.getElementById('zipDescInput');
+        const zipFileInput = document.getElementById('zipFileInput');
+        const zipDropArea = document.getElementById('zipDropArea');
+        const selectedZipName = document.getElementById('selectedZipName');
+        const uploadZipBtn = document.getElementById('uploadZipBtn');
+
+        const fileListEl = document.getElementById('fileList');
+        const fileCount = document.getElementById('fileCount');
+        const cheatCountLabel = document.getElementById('cheatCountLabel');
+
+        const regNick = document.getElementById('regNick');
+        const regEmail = document.getElementById('regEmail');
+        const regPassword = document.getElementById('regPassword');
+        const regPassword2 = document.getElementById('regPassword2');
+        const registerBtn = document.getElementById('registerBtn');
+
+        const nickDisplay = document.getElementById('nickDisplay');
+        const footerNick = document.getElementById('footerNick');
+        const openSiteBtn = document.getElementById('openSiteBtn');
+
+        let selectedFile = null;
+        let isAdminLoggedIn = false;
+
+        // ---- ???°??N?N??·???° ???°????N?N? ??N??? N?N??°N?N??µ ----
+        loadData();
+
+        // ---- ???±????????N?N? ??N????±N??°?¶?µ?????µ ?????»N??·?????°N??µ?»N? ----
+        function updateUserDisplay() {
+            const displayName = currentUser || '????N?N?N?';
+            nickDisplay.textContent = displayName;
+            footerNick.textContent = displayName;
+            const statusDot = document.querySelector('.user-badge .status');
+            if (currentUser) {
+                statusDot.style.background = '#4affb5';
+                statusDot.style.boxShadow = '0 0 20px #4affb5aa';
+            } else {
+                statusDot.style.background = '#facc15';
+                statusDot.style.boxShadow = '0 0 20px #facc1566';
+            }
+        }
+
+        // ---- ? ?µ?????µN? ?±???±?»????N??µ???? N???N????? (????N?N?N??????° ??N??µ??) ----
+        function renderCheats() {
+            grid.innerHTML = '';
+            if (cheatFiles.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-library">
+                        <i class="fas fa-box-open"></i>
+                        <p>?????±?»????N??µ???° ??N?N?N??°. ????????????N?N?N??°N???N? ?????¶?µN? ?·?°??N?N??·??N?N? ZIP-N??°???»N? N??µN??µ?· ???°???µ?»N? N???N??°???»?µ????N?.</p>
+                    </div>
+                `;
+                cheatCountLabel.textContent = '0 N??°???»????';
+                return;
+            }
+
+            cheatFiles.forEach((file, index) => {
+                const card = document.createElement('div');
+                card.className = 'cheat-card';
+                const icon = file.icon || 'fa-file-archive';
+                const tag = file.tag || '?§??N?';
+                const desc = file.desc || '??????N??°?????µ ??N?N?N?N?N?N???N??µN?';
+                const sizeStr = file.size ? `${file.size} ????` : '';
+                card.innerHTML = `
+                    <div class="cheat-icon"><i class="fas ${icon}"></i></div>
+                    <h3>${file.name} ${sizeStr ? `<span style="font-size:0.7rem; color:#7e97ae; font-weight:400;">(${sizeStr})</span>` : ''}</h3>
+                    <p>${desc}</p>
+                    <span class="cheat-tag"><i class="fas fa-tag"></i> ${tag}</span>
+                    <button class="btn-load load-cheat-btn" data-index="${index}"><i class="fas fa-arrow-circle-down"></i> ?????°N??°N?N? ZIP</button>
+                `;
+                grid.appendChild(card);
+            });
+
+            document.querySelectorAll('.load-cheat-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (!currentUser) {
+                        showToast('a?? ???»N? N????°N??????°????N? ???µ???±N??????????? ?·?°N??µ????N?N?N???N??????°N?N?N?N?!', true);
+                        return;
+                    }
+                    const idx = parseInt(this.getAttribute('data-index'));
+                    if (!isNaN(idx) && idx >= 0 && idx < cheatFiles.length) {
+                        const cheat = cheatFiles[idx];
+                        if (cheat.fileObject) {
+                            const url = URL.createObjectURL(cheat.fileObject);
+                            const a = document.createElement('a');
+                            a.href = url;
+                            a.download = cheat.fileName || cheat.name + '.zip';
+                            document.body.appendChild(a);
+                            a.click();
+                            document.body.removeChild(a);
+                            URL.revokeObjectURL(url);
+                            showToast(`???¦ ?????°N??????°?????µ "${cheat.fileName || cheat.name + '.zip'}" (${cheat.size || '?'} ????) ???°N??°N???!`);
+                        } else {
+                            showToast(`???¦ ?????°N??????°?????µ "${cheat.fileName || cheat.name + '.zip'}" (${cheat.size || '?'} ????) ???»N? ${currentUser}...`);
+                            const fakeZip = new Blob(['?­N??? ???µ??????N?N?N??°N?????????N??? ZIP-N??°???» ???»N? N???N??° ' + cheat.name], { type: 'application/zip' });
+                            const url = URL.createObjectURL(fakeZip);
+                            const a = document.createElement('a');
+                            a.href = url;
+                            a.download = cheat.fileName || cheat.name + '.zip';
+                            document.body.appendChild(a);
+                            a.click();
+                            document.body.removeChild(a);
+                            URL.revokeObjectURL(url);
+                            setTimeout(() => {
+                                showToast(`a?? ?¤?°???» "${cheat.fileName || cheat.name + '.zip'}" N?N????µN????? ?·?°??N?N??¶?µ??!`);
+                            }, 1000);
+                        }
+                    } else {
+                        showToast('a?? ??N????±???° ?·?°??N?N??·???? N??°???»?°.', true);
+                    }
+                });
+            });
+
+            cheatCountLabel.textContent = `${cheatFiles.length} N??°???»????`;
+        }
+
+        // ---- ???±????????N?N? N?????N????? N??°???»???? ?? ?°???????????µ ----
+        function renderFileList() {
+            fileListEl.innerHTML = '';
+            if (cheatFiles.length === 0) {
+                fileListEl.innerHTML = '<div style="color: #6f8aa5; padding: 0.5rem; text-align: center;">ZIP-N??°???»???? ???????° ???µN?</div>';
+                fileCount.textContent = '0';
+                return;
+            }
+            cheatFiles.forEach((file, index) => {
+                const div = document.createElement('div');
+                div.className = 'file-item';
+                const icon = file.icon || 'fa-file-archive';
+                const sizeStr = file.size ? `${file.size} ????` : '';
+                const fileName = file.fileName || 'file.zip';
+                div.innerHTML = `
+                    <span class="fname"><i class="fas ${icon}"></i> ${file.name} ${sizeStr} A· ${fileName} ${file.tag ? 'A· '+file.tag : ''}</span>
+                    <button class="del-btn" data-index="${index}"><i class="fas fa-trash-alt"></i></button>
+                `;
+                fileListEl.appendChild(div);
+            });
+
+            document.querySelectorAll('.file-item .del-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (!isAdminLoggedIn) {
+                        showToast('a?? ??N??µ?±N??µN?N?N? ??N????? ?? ?°??????????N?.', true);
+                        return;
+                    }
+                    const idx = parseInt(this.getAttribute('data-index'));
+                    if (!isNaN(idx) && idx >= 0 && idx < cheatFiles.length) {
+                        const removed = cheatFiles.splice(idx, 1)[0];
+                        renderFileList();
+                        renderCheats();
+                        saveCheatsWithFiles();
+                        showToast(`????i?? ?¤?°???» "${removed.fileName || removed.name}" N????°?»N???.`);
+                    }
+                });
+            });
+
+            fileCount.textContent = cheatFiles.length;
+        }
+
+        // ---- ????N?N? ----
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toastMessage');
+            const textSpan = document.getElementById('toastText');
+            if (!toast || !textSpan) return;
+            textSpan.textContent = message;
+            toast.className = 'toast-message' + (isError ? ' error' : '');
+            toast.style.display = 'block';
+            clearTimeout(toast._hideTimer);
+            toast._hideTimer = setTimeout(() => {
+                toast.style.display = 'none';
+                toast.className = 'toast-message';
+            }, 4500);
+        }
+
+        // ---- ???±????????N?N? N?????N????? ?°???????????? ----
+        function updateAdminList() {
+            adminListDisplay.textContent = admins.join(', ') || '???µN?';
+            saveData();
+        }
+
+        // ---- ??????????-???°???µ?»N?: ???????°?·?°N?N?/N???N?N?N?N? ----
+        let adminVisible = false;
+        adminToggleBtn.addEventListener('click', function() {
+            adminVisible = !adminVisible;
+            adminPanel.classList.toggle('active', adminVisible);
+            this.innerHTML = adminVisible ?
+                '<i class="fas fa-shield-alt"></i> ????N?N?N?N? ?°??????????N?' :
+                '<i class="fas fa-shield-alt"></i> ??????????-???°???µ?»N?';
+            if (!adminVisible) {
+                isAdminLoggedIn = false;
+                adminContent.style.display = 'none';
+                document.getElementById('adminLoginArea').style.display = 'flex';
+                adminLoginStatus.innerHTML = '<i class="fas fa-info-circle"></i> ???»N? ????N?N?N????° ?? ?°????????-???°???µ?»?? ?????µ????N??µ ???°N?N??µN?-???°N????»N?';
+                adminLoginStatus.className = 'admin-login-status';
+                adminPasswordInput.value = '';
+            }
+        });
+
+        // ---- ??N????? ?? ?°??????????N? ----
+        adminLoginBtn.addEventListener('click', function() {
+            const pass = adminPasswordInput.value.trim();
+            if (pass === MASTER_PASSWORD) {
+                isAdminLoggedIn = true;
+                adminContent.style.display = 'block';
+                document.getElementById('adminLoginArea').style.display = 'none';
+                adminLoginStatus.innerHTML = '<i class="fas fa-check-circle"></i> ??N? ????N??»?? ???°?? ?°??????????N?N?N??°N???N?';
+                adminLoginStatus.className = 'admin-login-status';
+                showToast('a?? ????N?N?N??? ?? ?°????????-???°???µ?»?? ?????»N?N??µ??!');
+            } else {
+                adminLoginStatus.innerHTML = '<i class="fas fa-times-circle error"></i> ???µ???µN???N??? ???°N?N??µN?-???°N????»N?!';
+                adminLoginStatus.className = 'admin-login-status';
+                showToast('a?? ???µ???µN???N??? ???°N?N??µN?-???°N????»N?!', true);
+            }
+        });
+
+        // ---- ??N????°N?N? ?°??????????N? ----
+        grantAdminBtn.addEventListener('click', function() {
+            if (!isAdminLoggedIn) {
+                showToast('a?? ??N??µ?±N??µN?N?N? ??N????? ?? ?°??????????N?.', true);
+                return;
+            }
+            const nick = adminNickInput.value.trim();
+            if (!nick) {
+                showToast('a?? ?????µ????N??µ ?????? ???»N? ??N????°N??? ??N??°??.', true);
+                return;
+            }
+            if (!users[nick] && nick !== 'nowSat') {
+                showToast(`a?? ?????»N??·?????°N??µ?»N? "${nick}" ???µ ?·?°N??µ????N?N?N???N??????°??.`, true);
+                return;
+            }
+            if (admins.includes(nick)) {
+                showToast(`a??i?? ${nick} N??¶?µ ?? N?????N????µ ?°??????????N?N?N??°N???N?????.`);
+                return;
+            }
+            admins.push(nick);
+            updateAdminList();
+            adminNickInput.value = '';
+            showToast(`a?? ??N??°???° ?°??????????N?N?N??°N???N??° ??N????°??N? ?????»N??·?????°N??µ?»N? "${nick}".`);
+        });
+
+        // ---- ???°?±N??°N?N? ?°??????????N? ----
+        revokeAdminBtn.addEventListener('click', function() {
+            if (!isAdminLoggedIn) {
+                showToast('a?? ??N??µ?±N??µN?N?N? ??N????? ?? ?°??????????N?.', true);
+                return;
+            }
+            const nick = adminNickInput.value.trim();
+            if (!nick) {
+                showToast('a?? ?????µ????N??µ ?????? ???»N? ?»??N??µ????N? ??N??°??.', true);
+                return;
+            }
+            if (nick === 'nowSat') {
+                showToast('a?? ???µ?»N??·N? ?·?°?±N??°N?N? ??N??°???° N? nowSat.', true);
+                return;
+            }
+            const idx = admins.indexOf(nick);
+            if (idx === -1) {
+                showToast(`a?? ${nick} ???µ N????»N??µN?N?N? ?°??????????N?N?N??°N???N?????.`, true);
+                return;
+            }
+            admins.splice(idx, 1);
+            updateAdminList();
+            adminNickInput.value = '';
+            showToast(`a?? ?????»N??·?????°N??µ?»N? "${nick}" ?»??N?N??? ??N??°?? ?°??????????N?N?N??°N???N??°.`);
+        });
+
+        // ---- ? ?°?±??N??° N? ??N??±??N????? ZIP-N??°???»?° ----
+        zipDropArea.addEventListener('click', function() {
+            if (!isAdminLoggedIn) {
+                showToast('a?? ??N??µ?±N??µN?N?N? ??N????? ?? ?°??????????N?.', true);
+                return;
+            }
+            zipFileInput.click();
+        });
+
+        zipFileInput.addEventListener('change', function(e) {
+            if (!isAdminLoggedIn) return;
+            if (this.files && this.files.length > 0) {
+                const file = this.files[0];
+                if (file.type === 'application/zip' || file.name.endsWith('.zip')) {
+                    selectedFile = file;
+                    selectedZipName.textContent = `???? ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} ????)`;
+                    showToast(`a?? ??N??±N??°?? ZIP-N??°???»: ${file.name}`);
+                } else {
+                    showToast('a?? ?????¶?°?»N???N?N??°, ??N??±?µN???N??µ ZIP-N??°???».', true);
+                    selectedFile = null;
+                    selectedZipName.textContent = '?¤?°???» ???µ ??N??±N??°??';
+                    this.value = '';
+                }
+            }
+        });
+
+        zipDropArea.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            if (!isAdminLoggedIn) return;
+            this.style.borderColor = '#b78aff';
+            this.style.background = '#121e2c';
+        });
+
+        zipDropArea.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            this.style.borderColor = '#3a5068';
+            this.style.background = '#0a121d';
+        });
+
+        zipDropArea.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.style.borderColor = '#3a5068';
+            this.style.background = '#0a121d';
+            if (!isAdminLoggedIn) {
+                showToast('a?? ??N??µ?±N??µN?N?N? ??N????? ?? ?°??????????N?.', true);
+                return;
+            }
+            const files = e.dataTransfer.files;
+            if (files && files.length > 0) {
+                const file = files[0];
+                if (file.type === 'application/zip' || file.name.endsWith('.zip')) {
+                    selectedFile = file;
+                    selectedZipName.textContent = `???? ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} ????)`;
+                    zipFileInput.files = files;
+                    showToast(`a?? ??N??±N??°?? ZIP-N??°???»: ${file.name}`);
+                } else {
+                    showToast('a?? ?????¶?°?»N???N?N??°, ???µN??µN??°N???N??µ ZIP-N??°???».', true);
+                    selectedFile = null;
+                    selectedZipName.textContent = '?¤?°???» ???µ ??N??±N??°??';
+                }
+            }
+        });
+
+        // ---- ???°??N?N??·???° ZIP-N??°???»?° ?? ?±???±?»????N??µ??N? ----
+        uploadZipBtn.addEventListener('click', function() {
+            if (!isAdminLoggedIn) {
+                showToast('a?? ??N??µ?±N??µN?N?N? ??N????? ?? ?°??????????N?.', true);
+                return;
+            }
+            const name = zipNameInput.value.trim();
+            if (!name) {
+                showToast('a?? ?????µ????N??µ ???°?·???°?????µ N???N??°.', true);
+                return;
+            }
+
+            if (!selectedFile) {
+                showToast('a?? ??N??±?µN???N??µ ZIP-N??°???» ???»N? ?·?°??N?N??·????.', true);
+                return;
+            }
+
+            const fileSizeGB = selectedFile.size / (1024 * 1024 * 1024);
+            if (fileSizeGB > 5) {
+                showToast(`a?? ? ?°?·???µN? N??°???»?° (${fileSizeGB.toFixed(2)} ????) ??N??µ??N?N??°?µN? ?»??????N? ?? 5 ????!`, true);
+                return;
+            }
+
+            const tag = zipTagInput.value.trim() || '?§??N?';
+            const desc = zipDescInput.value.trim() || '??????N??°?????µ ??N?N?N?N?N?N???N??µN?';
+
+            const icons = ['fa-file-archive', 'fa-box', 'fa-cube', 'fa-puzzle-piece', 'fa-cogs', 'fa-tools', 'fa-download', 'fa-archive'];
+            const icon = icons[Math.floor(Math.random() * icons.length)];
+
+            cheatFiles.push({
+                name: name,
+                desc: desc,
+                tag: tag,
+                icon: icon,
+                size: parseFloat(fileSizeGB.toFixed(2)),
+                fileName: selectedFile.name,
+                fileObject: selectedFile
+            });
+
+            renderFileList();
+            renderCheats();
+            saveCheatsWithFiles();
+
+            zipNameInput.value = '';
+            zipTagInput.value = '';
+            zipDescInput.value = '';
+            selectedFile = null;
+            selectedZipName.textContent = '?¤?°???» ???µ ??N??±N??°??';
+            zipFileInput.value = '';
+
+            showToast(`???¦ ZIP-N??°???» "${name}" N?N????µN????? ?·?°??N?N??¶?µ??! ? ?°?·???µN?: ${fileSizeGB.toFixed(2)} ????`);
+        });
+
+        // ---- ? ?????˜????? ???¦?˜?? N? N???N?N??°???µ?????µ?? ----
+        registerBtn.addEventListener('click', function() {
+            const nick = regNick.value.trim();
+            const email = regEmail.value.trim();
+            const pass = regPassword.value;
+            const pass2 = regPassword2.value;
+
+            if (!nick) {
+                showToast('a?? ?????µ????N??µ ?????????µ????.', true);
+                return;
+            }
+            if (nick.length < 3) {
+                showToast('a?? ?????????µ???? ?????»?¶?µ?? ?±N?N?N? ??????????N??? 3 N??????????»?°.', true);
+                return;
+            }
+            if (users[nick]) {
+                showToast(`a?? ?????»N??·?????°N??µ?»N? "${nick}" N??¶?µ N?N?N??µN?N???N??µN?.`, true);
+                return;
+            }
+            if (!email) {
+                showToast('a?? ?????µ????N??µ email.', true);
+                return;
+            }
+            if (!email.includes('@') || !email.includes('.')) {
+                showToast('a?? ?????µ????N??µ ????N?N??µ??N???N??? email.', true);
+                return;
+            }
+            if (!pass) {
+                showToast('a?? ?????µ????N??µ ???°N????»N?.', true);
+                return;
+            }
+            if (pass.length < 6) {
+                showToast('a?? ???°N????»N? ?????»?¶?µ?? ?±N?N?N? ??????????N??? 6 N??????????»????.', true);
+                return;
+            }
+            if (pass !== pass2) {
+                showToast('a?? ???°N????»?? ???µ N????????°???°N?N?.', true);
+                return;
+            }
+
+            users[nick] = { email: email, password: pass };
+            currentUser = nick;
+            updateUserDisplay();
+            saveData();
+
+            showToast(`a?? ?????»N??·?????°N??µ?»N? "${nick}" N?N????µN????? ?·?°N??µ????N?N?N???N??????°??! ?????±N??? ?????¶?°?»?????°N?N?!`);
+            regNick.value = '';
+            regEmail.value = '';
+            regPassword.value = '';
+            regPassword2.value = '';
+        });
+
+        // ---- ???°??N?N??? ????N?N? ----
+        document.getElementById('launchMainBtn').addEventListener('click', function() {
+            if (!currentUser) {
+                showToast('a?? ???»N? ?·?°??N?N????° ???µ???±N??????????? ?·?°N??µ????N?N?N???N??????°N?N?N?N?!', true);
+                return;
+            }
+            showToast(`???? ???°??N?N??? Minecraft N? ??N???N????»?µ?? "${currentUser}" (Mrsoftuk_SAT)`);
+            setTimeout(() => {
+                showToast(`a?? ?˜??N??° ?·?°??N?N??µ???°! ??N???N?N??????? ????N?N?, ${currentUser}!`);
+            }, 1600);
+        });
+
+        // ---- ??N???N?N?N????µ N??°??N??° ?? ?±N??°N??·?µN??µ ----
+        function openSite() {
+            const siteUrl = 'https://mrsoftu.ru/dcaw/cdg.cu';
+            // ??N????±N??µ?? ??N???N?N?N?N? ?? ?????????? ?????»?°?????µ
+            window.open(siteUrl, '_blank');
+            showToast(`???? ??N???N?N????°?µ?? N??°??N? ?? ?±N??°N??·?µN??µ...`);
+            // ??N??»?? ???µ ??N???N?N??»??N?N?, ???????°?·N????°?µ?? N?N?N??»??N?
+            setTimeout(() => {
+                showToast(`???? ??N??»?? N??°??N? ???µ ??N???N?N??»N?N?, ???µN??µ??????N??µ ???? N?N?N??»???µ: ${siteUrl}`);
+            }, 3000);
+        }
+
+        // ???????????° "??N???N?N?N?N? ?? ?±N??°N??·?µN??µ"
+        openSiteBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openSite();
+        });
+
+        // ??N?N??»???° ???° N??°??N?
+        document.getElementById('siteLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            openSite();
+        });
+
+        // ---- ??N?N??°?»N???N??µ N?N?N??»???? ----
+        document.querySelectorAll('#discordLink, #youtubeLink, #supportLink').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const text = this.innerText.trim() || 'N?N?N??»???°';
+                showToast(`???? ???µN??µN????? ???° ${text} (???µ????-N??µ?¶????)`);
+            });
+        });
+
+        document.getElementById('userBadge').addEventListener('click', function() {
+            if (currentUser) {
+                showToast(`???? ???µ??N?N????? ??N???N????»N?: ${currentUser} (?°??N???N????·?????°??)`);
+            } else {
+                showToast(`???¤ ??N? ???µ ?°??N???N????·?????°??N?. ???°N??µ????N?N?N???N?N???N??µN?N?!`);
+            }
+        });
+
+        // ---- ?˜????N????°?»???·?°N???N? ----
+        updateUserDisplay();
+        updateAdminList();
+        renderCheats();
+        renderFileList();
+
+        setTimeout(() => {
+            if (currentUser) {
+                showToast(`???? ?? ?????·??N??°N??µ?????µ??, ${currentUser}!`);
+            } else {
+                showToast(`???? ?????±N??? ?????¶?°?»?????°N?N?! ???°N??µ????N?N?N???N?N???N??µN?N?, N?N????±N? ?????»N?N???N?N? ????N?N?N??? ???? ??N??µ?? N???N??°??.`);
+            }
+        }, 600);
+
+        console.log(`a?? Mrsoftuk_SAT ?»?°N???N??µN? ?·?°??N?N??¶?µ??. ??????????N?: ${admins.join(', ')}. ???°N?N??µN?-???°N????»N?: ${MASTER_PASSWORD}`);
+        console.log(`???? ???°N??µ????N?N?N???N??????°???? ?????»N??·?????°N??µ?»?µ??: ${Object.keys(users).length}`);
+        console.log(`???? ?¤?°???»???? ?? ?±???±?»????N??µ???µ: ${cheatFiles.length}`);
+        console.log(`???? ??N?N??»???° ???° N??°??N?: https://mrsoftu.ru/dcaw/cdg.cu`);
+    })();
+</script>
+
+</body>
+</html>
